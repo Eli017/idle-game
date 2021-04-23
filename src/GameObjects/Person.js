@@ -1,4 +1,4 @@
-class Person {
+export default class Person {
     constructor(level) {
         this.level = level;
         this.salary = 0;
