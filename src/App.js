@@ -13,7 +13,6 @@ function App() {
     return () => clearInterval(interval);
   });
 
-
   //What happens within each second of the game?
   const onUpdate = () => {
     setCount(count + 1);
