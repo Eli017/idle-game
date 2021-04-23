@@ -1,21 +1,36 @@
 import logo from './logo.svg';
+import {useState, useEffect} from "react";
 import './App.css';
 
 function App() {
+  const [count, setCount] = useState(0);
+  const [timeout, setTimeout] = useState(1000);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      onUpdate();
+    }, timeout);
+    return () => clearInterval(interval);
+  });
+
+
+  //What happens within each second of the game?
+  const onUpdate = () => {
+    setCount(count + 1);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          {count}
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          onClick={() => setTimeout(100)}
         >
-          Learn React
+          Increase time speed
         </a>
       </header>
     </div>
